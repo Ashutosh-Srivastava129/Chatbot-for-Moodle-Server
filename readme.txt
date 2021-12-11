@@ -1,3 +1,4 @@
-1. extract file 
-2. open chatbot folder
-3. open html file and chat with chatbot
+Extract file 
+open chatbot1 folder
+extract dist file in chatbot1 folder where all main files are there(ism , demo , jquery , readme)
+open html file and chat with chatbot
