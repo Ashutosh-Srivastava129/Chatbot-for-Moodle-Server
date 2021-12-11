@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>convForm - example</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="dist/jquery.convform.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="demo.css">
+</head>
+
+<body>
+	<section id="demo">
+		<div class="vertical-align">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 col-xs-offset-0">
+						<div class="card no-border">
+							<div id="chat" class="conv-form-wrapper">
+								<form action="" method="GET" class="hidden">
+
+									<input type="text" data-conv-question="Hi, I'm a bot, Welcome to our Help Chat."
+										data-no-answer="true">
+									<select name="stufac"
+										data-conv-question="plz tell whether you are student or faculty "
+										data-callback="storeState">
+										<option value="Student">Student </option>
+										<option value="Faculty">Faculty </option>
+									</select>
+									<div data-conv-fork="stufac">
+										<div data-conv-case="Student">
+											<input type="text" name="name"
+												data-conv-question="Alright! First, tell me your full name, please.|Okay! Please, tell me your name first.">
+											<input type="text"
+												data-conv-question="Howdy, {name}:0! It's a pleasure to meet you. "
+												data-no-answer="true">
+											<select name="student1" data-conv-question="You are from which department.">
+												<option value="a">MCA</option>
+												<option value="b">Mtech</option>
+												<option value="c">IMtech</option>
+											</select>
+											<div data-conv-fork="student1">
+												<div data-conv-case="a">
+													<select name="number" data-callback="storeState"
+														data-conv-question="can you tell me you are from which semester ">
+														<option value="1">SEM 1</option>
+														<option value="2">SEM 2</option>
+														<option value="3">SEM 3</option>
+														<option value="4">SEM 4</option>
+														<option value="5">SEM 5</option>
+														<option value="6">SEM 6</option>
+													</select>
+												</div>
+												<div data-conv-case="b">
+													<select name="number" data-callback="storeState"
+														data-conv-question="can you tell me you are from which semester ">
+														<option value="1">SEM 1</option>
+														<option value="2">SEM 2</option>
+														<option value="3">SEM 3</option>
+														<option value="4">SEM 4</option>
+													</select>
+												</div>
+												<div data-conv-case="c">
+													<select name="number" data-callback="storeState"
+														data-conv-question="can you tell me you are from which semester ">
+														<option value="1">S1</option>
+														<option value="2">S2</option>
+														<option value="3">S3</option>
+														<option value="4">S4</option>
+														<option value="5">S5</option>
+														<option value="6">S6</option>
+														<option value="7">S7</option>
+														<option value="8">S8</option>
+														<option value="9">S9</option>
+														<option value="10">S10</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div data-conv-case="Faculty">
+											<input type="text" name="name"
+												data-conv-question="Alright! First, tell me your full name, please.|Okay! Please, tell me your name first.">
+											<input type="text"
+												data-conv-question="Hi, {name}:0! It's pleasure to meet you. "
+												data-no-answer="true">
+											<select name="faculty1" data-conv-question="which course faculty you are??">
+												<option value="a">ISM</option>
+												<option value="b">PPL</option>
+												<option value="c">DC</option>
+												<option value="d">DE</option>
+												<option value="e">CG</option>
+												<option value="f">GT</option>
+											</select>
+										</div>
+									</div>
+									
+
+									<select name="problem" data-callback="storeState"
+										data-conv-question="ok ,So What problems you are facing in moodle server. 
+										( Click on Issue 1 when you are Facing login issue.)
+										( Click on Issue 2 when you are Facing Network Issue.)    
+										( Click on Issue 3 when you are Unable to download Content.)    
+										( Click on Issue 4 when you are Unable to upload content.)   
+										( Click on Issue 5 when you are Unable to Access content.)    
+										( Click on Issue 6 for any other issue)">
+										<option value="login">Issue 1</option>
+										<option value="network">Issue 2</option>
+										<option value="download">Issue 3</option>
+										<option value="upload">Issue 4</option>
+										<option value="course">Issue 5</option>
+										<option value="other">Issue 6 </option>
+
+									</select>
+									<div data-conv-fork="problem">
+										<div data-conv-case="login">
+											<input type="text"
+												data-conv-question="plz, check input correct credential ,if you forget your login and password then you may reset it .If same problem exist then contact to Helpdesk@uohyd.ac.in "
+												data-no-answer="true">
+										</div>
+										<div data-conv-case="network">
+											<input type="text"
+												data-conv-question="Check whether you have active internet connection or not , if you forget your login and password then you may reset it .If same problem exist then contact to Helpdesk@uohyd.ac.in "
+												data-no-answer="true">
+										</div>
+										<div data-conv-case="download">
+											<input type="text"
+												data-conv-question="Check whether you have active internet connection or not , if you forget your login and password then you may reset it .If same problem exist then contact to Helpdesk@uohyd.ac.in "
+												data-no-answer="true">
+										</div>
+										<div data-conv-case="upload">
+											<input type="text"
+												data-conv-question="Check whether you have active internet connection or not , if you forget your login and password then you may reset it .If same problem exist then contact to Helpdesk@uohyd.ac.in"
+												data-no-answer="true">
+										</div>
+										<div data-conv-case="course">
+											<input type="text"
+												data-conv-question="make sure , you have active internet connection or not , if you forget your login and password then you may reset it .If same problem exist then contact to Helpdesk@uohyd.ac.in"
+												data-no-answer="true">
+										</div>
+										<div data-conv-case="other">
+											<input type="text" name="name"
+												data-conv-question="mention any Other issue you faced">
+											<input type="text"
+												data-conv-question="Hi, We will solve your issue as soon as possible, our team will contact you within 24 Hrs."
+												data-no-answer="true">
+										</div>
+
+									</div>
+									<select name="number" data-callback="storeState"
+										data-conv-question="Could you tell me your contact number for further query">
+										<option value="yes">Yes</option>
+										<option value="no">No</option>
+									</select>
+									<div data-conv-fork="number">
+										<div data-conv-case="yes">
+											<input data-conv-question="please enter contact no" type="contact_no"
+												data-minlength="10" id="senha" name="contact_no" required
+												placeholder="contact">
+											<select name="email1" data-callback="storeState"
+												data-conv-question="  can u provide email also!">
+												<option value="yes">Yes</option>
+												<option value="no">No</option>
+											</select>
+											<div data-conv-fork="email1">
+												<div data-conv-case="yes">
+													<input data-conv-question="Type in your e-mail"
+														data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+														id="email" type="email" name="email" required
+														placeholder="What's your e-mail?">
+												</div>
+												<div data-conv-case="no">
+													<input type="text" data-conv-question="ok , no problem !"
+														data-no-answer="true">
+												</div>
+											</div>
+										</div>
+										<div data-conv-case="no">
+											<select name="email" data-callback="storeState"
+												data-conv-question="ok , instead of contact no ,  can u provide email Id !">
+												<option value="yes">Yes</option>
+												<option value="no">No</option>
+											</select>
+											<div data-conv-fork="email">
+												<div data-conv-case="yes">
+													<input data-conv-question="Type in your e-mail"
+														data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+														id="email" type="email" name="email" required
+														placeholder="What's your e-mail?">
+												</div>
+												<div data-conv-case="no">
+													<input type="text" data-conv-question="ok , no problem !"
+														data-no-answer="true">
+												</div>
+											</div>
+										</div>
+									</div>
+									<input type="text"
+										data-conv-question="I will update you when your Query get resolved. "
+										data-no-answer="true">
+									<select name="feedback"
+										data-conv-question="please provide feedback if u r satisfied with our chat:">
+										<option value="satisfied">I am satisfied</option>
+										<option value="unsatisfied">I am not satisfied</option>
+									</select>
+									<div data-conv-fork="feedback">
+										<div data-conv-case="satisfied">
+											<input type="text" data-conv-question="Thanx " data-no-answer="true">
+										</div>
+										<div data-conv-case="unsatisfied">
+											<input type="text" data-conv-question="Sorry , if i didn't satisfy you!"
+												data-no-answer="true">
+										</div>
+									</div>
+
+									<select
+										data-conv-question="This is it! If you like me, consider donating! If you need support, contact me. When the form gets to the end, the plugin submits it normally, like you had filled it."
+										id="">
+										<option value="">Awesome!</option>
+									</select>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="dist/autosize.min.js"></script>
+	<script type="text/javascript" src="dist/jquery.convform.js"></script>
+
+	<script>
+
+		var rollbackTo = false;
+		var originalState = false;
+		function storeState(stateWrapper, ready) {
+			rollbackTo = stateWrapper.current;
+			console.log("storeState called: ", rollbackTo);
+			ready();
+		}
+		function rollback(stateWrapper, ready) {
+			console.log("rollback called: ", rollbackTo, originalState);
+			console.log("answers at the time of user input: ", stateWrapper.answers);
+			if (rollbackTo != false) {
+				if (originalState == false) {
+					originalState = stateWrapper.current.next;
+					console.log('stored original state');
+				}
+				stateWrapper.current.next = rollbackTo;
+				console.log('changed current.next to rollbackTo');
+			}
+			ready();
+		}
+		function restore(stateWrapper, ready) {
+			if (originalState != false) {
+				stateWrapper.current.next = originalState;
+				console.log('changed current.next to originalState');
+			}
+			ready();
+		}
+	</script>
+	<script>
+		jQuery(function ($) {
+			convForm = $('#chat').convform({ selectInputStyle: 'disable' });
+			console.log(convForm);
+		});
+	</script>
+</body>
+</html>
